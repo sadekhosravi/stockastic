@@ -24,32 +24,28 @@ export class NavMenu extends Component {
 
   render() {
     return (
-      <header>
-        <Navbar className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3" light>
-          <Container>
-            <NavbarBrand tag={Link} to="/">khosravi_webapi_react</NavbarBrand>
-            <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
-            <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!this.state.collapsed} navbar>
-              <ul className="navbar-nav flex-grow">
-                <NavItem>
-                  <NavLink tag={Link} className="text-dark" to="/">Home</NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink tag={Link} className="text-dark" to="/currency">Currency</NavLink>
-                </NavItem>
-                {/* <NavItem>
-                  <NavLink tag={Link} className="text-dark" to="/counter">Counter</NavLink>
-                </NavItem> 
-                <NavItem>
-                  <NavLink tag={Link} className="text-dark" to="/fetch-data">Fetch data</NavLink>
-                </NavItem>
-                */}
-                <LoginMenu>
-                </LoginMenu>
-              </ul>
-            </Collapse>
-          </Container>
-        </Navbar>
+      <header id="header" class="fixed-top d-flex align-items-center header-transparent">
+        <div class="container d-flex justify-content-between align-items-center">
+          <div class="logo">
+            <h1 class="text-light"><a href="/"><span>Moderna</span></a></h1>
+          </div>
+
+
+          <nav id="navbar" class="navbar">
+            <ul className="navbar-nav flex-grow">
+              <NavItem>
+                <NavLink tag={Link} className="text-dark" to="/">Home</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink tag={Link} className="text-dark" to="/currency">Currency</NavLink>
+              </NavItem>
+              <LoginMenu>
+              </LoginMenu>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+          </nav>
+
+        </div>
       </header>
     );
   }
