@@ -107,13 +107,13 @@ export class Home extends Component {
 
                                     <div class="icon-box">
                                         <div class="icon"><i class="bx bx-fingerprint"></i></div>
-                                        <h4 class="title"><a href="">Demo For Free</a></h4>
+                                        <h4 class="title"><a href="/stock">Demo For Free</a></h4>
                                         <p class="description">access to all kinds of plots of stock price</p>
                                     </div>
 
                                     <div class="icon-box">
                                         <div class="icon"><i class="bx bx-gift"></i></div>
-                                        <h4 class="title"><a href="">Premium</a></h4>
+                                        <h4 class="title"><a href="/predict">Premium</a></h4>
                                         <p class="description">access to all predictions and plots</p>
                                     </div>
 

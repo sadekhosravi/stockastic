@@ -14,6 +14,20 @@ function parseData(parse) {
 	};
 }
 
+
+function parsePredictData(parse) {
+	return function (d) {
+		d.date = parse(d.ds);
+		d.open = 0;
+		d.high = +d.yhat_upper;
+		d.low = +d.yhat_lower;
+		d.close = +d.yhat;
+		d.volume = 0;
+
+		return d;
+	};
+}
+
 const parseDate = timeParse("%Y-%m-%d");
 
 function parseCompareData(parse) {
@@ -68,5 +82,13 @@ export function getStockData(stock) {
 	const promiseStock = fetch("https://localhost:5001/data/" + stock + ".tsv")
 	.then(response => response.text())
 	.then(data => tsvParse(data, parseData(parseDate)))
+return promiseStock;
+}
+
+
+export function getPredictData(stock) {
+	const promiseStock = fetch("https://localhost:5001/data/" + stock + "_PREDICT.tsv")
+	.then(response => response.text())
+	.then(data => tsvParse(data, parsePredictData(parseDate)))
 return promiseStock;
 }

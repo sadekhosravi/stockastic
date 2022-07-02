@@ -12,6 +12,7 @@ api/wwwroot/**
 
 # node
 ClientApp/node_modules/
+ClientApp/build/
 node_modules/
 typings/
 npm-debug.log
@@ -32,3 +33,6 @@ ops/*.retry
 # IDE
 .idea/
 .vs/
+
+/app.db
+
