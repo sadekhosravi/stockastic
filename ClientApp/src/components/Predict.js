@@ -26,7 +26,7 @@ export class Predict extends Component {
     handleChange(event) {
         console.log("In select: ", event.target.value);
         const stock = event.target.value;
-        getStockData(stock).then(data => {
+        getPredictData(stock).then(data => {
             console.log('GOt data', data)
             this.setState({ data, stock })
         })
