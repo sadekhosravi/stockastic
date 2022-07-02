@@ -10,6 +10,8 @@ import { ApplicationPaths } from './components/api-authorization/ApiAuthorizatio
 
 import './custom.css'
 import { Currency } from './components/Currency';
+import { Predict } from './components/Predict';
+import { Pricing } from './components/Pricing';
 
 export default class App extends Component {
   static displayName = App.name;
@@ -18,7 +20,9 @@ export default class App extends Component {
     return (
       <Layout>
         <Route exact path='/' component={Home} />
-        <AuthorizeRoute exact path='/currency' component={Currency} />
+        <Route exact path='/stock' component={Currency} />
+        <Route exact path='/pricing' component={Pricing} />
+        <AuthorizeRoute exact path='/predict' component={Predict} />
         <Route path='/counter' component={Counter} />
         <AuthorizeRoute path='/fetch-data' component={FetchData} />
         <Route path={ApplicationPaths.ApiAuthorizationPrefix} component={ApiAuthorizationRoutes} />

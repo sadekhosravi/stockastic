@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import CandleStickChartWithZoomPan from './CandleStickChartWithZoomPan';
-import { getCompareData, getLocalData, getStockData } from "./utils"
+import { getCompareData, getLocalData, getPredictData } from "./utils"
 import { Container, Form, Input, Accordion, AccordionItem, AccordionBody, AccordionHeader } from 'reactstrap';
 import { TypeChooser } from "react-stockcharts/lib/helper";
 import LineAndScatterChartGrid from './charts/LineAndScatterChartGrid';
 import LineAndScatterChart from './charts/LineAndScatterChart';
 
-export class Currency extends Component {
-    static displayName = Currency.name;
+export class Predict extends Component {
+    static displayName = Predict.name;
 
     componentDidMount() {
         this.setState({ data: [], stock: '', chart: 'line' })
         const stock = 'GOOG'
-        getStockData(stock).then(data => {
+        getPredictData(stock).then(data => {
             console.log('GOt data', data)
             this.setState({ data, stock })
         })
@@ -26,7 +26,7 @@ export class Currency extends Component {
     handleChange(event) {
         console.log("In select: ", event.target.value);
         const stock = event.target.value;
-        getStockData(stock).then(data => {
+        getPredictData(stock).then(data => {
             console.log('GOt data', data)
             this.setState({ data, stock })
         })
@@ -59,7 +59,7 @@ export class Currency extends Component {
             <Container style={{ marginTop: 100 }}>
                 <form>
                     <h2>
-                        Select Stock to Show Data:
+                        Select Stock to Predict:
                     </h2>
                     <select className="form-select" aria-label="Select Stock" onChange={this.handleChange.bind(this)}>
                         <option selected value="GOOG">
