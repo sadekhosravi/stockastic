@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import CandleStickChartWithZoomPan from './CandleStickChartWithZoomPan';
-import { getCompareData, getLocalData, getPredictData } from "./utils"
+import { getCompareData, getLocalData, getPredictData, getTweetData } from "./utils"
 import { Container, Form, Input, Accordion, AccordionItem, AccordionBody, AccordionHeader } from 'reactstrap';
 import { TypeChooser } from "react-stockcharts/lib/helper";
 import LineAndScatterChartGrid from './charts/LineAndScatterChartGrid';
 import LineAndScatterChart from './charts/LineAndScatterChart';
+import GroupedBarChart from './charts/GroupedBarChart';
 
 export class Predict extends Component {
     static displayName = Predict.name;
 
     componentDidMount() {
-        this.setState({ data: [], stock: '', chart: 'line' })
+        this.setState({ data: [], stock: '', chart: 'line', tweetData: getTweetData() })
         const stock = 'GOOG'
         getPredictData(stock).then(data => {
             console.log('GOt data', data)
@@ -57,6 +58,10 @@ export class Predict extends Component {
         }
         return (
             <Container style={{ marginTop: 100 }}>
+
+                <h1>Tweet sentimental analysis:</h1>
+                <GroupedBarChart type={"hybrid"} data={this.state.tweetData} />;
+
                 <form>
                     <h2>
                         Select Stock to Predict:

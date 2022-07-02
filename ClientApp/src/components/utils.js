@@ -80,15 +80,26 @@ export function getLocalData() {
 
 export function getStockData(stock) {
 	const promiseStock = fetch("https://localhost:5001/data/" + stock + ".tsv")
-	.then(response => response.text())
-	.then(data => tsvParse(data, parseData(parseDate)))
-return promiseStock;
+		.then(response => response.text())
+		.then(data => tsvParse(data, parseData(parseDate)))
+	return promiseStock;
 }
 
 
 export function getPredictData(stock) {
 	const promiseStock = fetch("https://localhost:5001/data/" + stock + "_PREDICT.tsv")
-	.then(response => response.text())
-	.then(data => tsvParse(data, parsePredictData(parseDate)))
-return promiseStock;
+		.then(response => response.text())
+		.then(data => tsvParse(data, parsePredictData(parseDate)))
+	return promiseStock;
+}
+
+export function getTweetData() {
+	const data = [
+		{ "x": "Google", "y1": 65.8, "y2": 12.7, "y3": 21.5 },
+		{ "x": "GameStop", "y1": 45.1, "y2": 27.6, "y3": 27.3 },
+		{ "x": "Microsoft", "y1": 52.7, "y2": 17.1, "y3": 30.2 },
+		{ "x": "Tesla", "y1": 70.4, "y2": 14.3, "y3": 15.3 },
+		{ "x": "Apple", "y1": 75.69, "y2": 14.33, "y3": 9.98 }
+	]
+	return data;
 }
